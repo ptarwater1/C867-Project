@@ -61,7 +61,7 @@ void Student::setLastName(string lastName) {
 	this->lastName = lastName;
 }
 
-void Student::setEmailAddress(string emailAddress) {
+void Student::setEmailAdress(string emailAddress) {
 	this->emailAddress = emailAddress;
 }
 
