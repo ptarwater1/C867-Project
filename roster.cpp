@@ -87,7 +87,7 @@ void Roster::add(string sId, string fName, string lName, string eAddr, int sAge,
 
 void Roster::printAll()
 {
-	for (int i = 0; i <= this->lastIndex; i++) (this->books)[i]->print();
+	for (int i = 0; i <= this->lastIndex; i++) (this->students)[i]->print();
 }
 
 

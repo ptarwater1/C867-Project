@@ -1,31 +1,34 @@
 #pragma once
 #include <string>
 #include "degree.h"
-using namespace std;
+using std::string;
+
 
 class Student {
+public:
+	const static int daysInCourseArraySize = 3;
+
 protected:
 	string studentId;
 	string firstName;
 	string lastName;
 	string emailAddress;
 	int age;
-	int daysInCourse[];
+	int daysInCourse[daysInCourseArraySize];
 	Degree degree;
 
 public:
 	//Constructors
 	Student();
 	Student(string studentId, string firstName, string lastName, string emailAddress, int age, int* daysInCourse[], Degree degree);
-	const static int dayInCourseArraySize = 3;
-
+	
 	//Accessors
-	string getStudentId() const;
-	string getFirstName() const;
-	string getLastName() const;
-	string getEmailAddress() const;
-	int getAge() const;
-	int* getDaysInCourse() const;
+	string getStudentId();
+	string getFirstName();
+	string getLastName();
+	string getEmailAddress();
+	int getAge();
+	int* getDaysInCourse();
 	virtual Degree getDegree() = 0;
 
 	//Mutators
