@@ -1,8 +1,22 @@
-#pragma once
-#include "degree.h"
+#pragama once
 #include "student.h"
+#include <string>
 
-class SecurityStudent : public Student {
-protected: Degree degree = SECURITY;
-public: Degree getDegree() override;
+class SecurityStudent : public Student
+{
+public:
+	SecurityStudent();
+	SecurityStudent(
+		string StudentId,
+		string firstName,
+		string lastName,
+		string emailAddress,
+		int age,
+		int daysInCourse,
+		Degree degree
+	);
+	Degree getDegree();
+	void print();
+
+	~SecurityStudent();
 };

@@ -1,8 +1,22 @@
-#pragma once
-#include "degree.h"
+#pragama once
 #include "student.h"
+#include <string>
 
-class NetworkStudent : public Student {
-protected: Degree degree = NETWORK;
-public: Degree getDegree() override;
+class NetworkStudent : public Student
+{
+public:
+	NetworkStudent();
+	NetworkStudent(
+		string StudentId,
+		string firstName,
+		string lastName,
+		string emailAddress,
+		int age,
+		int daysInCourse,
+		Degree degree
+	);
+	Degree getDegree();
+	void print();
+
+	~NetworkStudent();
 };

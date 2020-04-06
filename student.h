@@ -20,7 +20,7 @@ protected:
 public:
 	//Constructors
 	Student();
-	Student(string studentId, string firstName, string lastName, string emailAddress, int age, int* daysInCourse[], Degree degree);
+	Student(string studentId, string firstName, string lastName, string emailAddress, int age, int* daysInCourse[]);
 	
 	//Accessors
 	string getStudentId();
@@ -38,9 +38,8 @@ public:
 	void setEmailAdress(string emailAddress);
 	void setAge(int age);
 	void setDaysInCourse(int daysInCourse[]);
-	void setDegree(Degree degree);
-
-	virtual void print();
+	
+	virtual void print() = 0;
 
 	//Destructor
 	~Student();

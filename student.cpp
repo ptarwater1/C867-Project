@@ -1,51 +1,54 @@
 #include <iostream>
+#include <iomanip>
 #include "student.h"
-using namespace std;
+using std::left;
+using std::setw;
+using std::cout;
 
 //Constructors
 Student::Student()
-	: studentId(""), firstName(""), lastName(""), emailAddress(""), age(-1), daysInCourse(new int[daysInCourseArraySize])
 {
-	for (int i = 0; i < daysInCourseArraySize; ++1) {
-		this->daysInCourse[i] = 0;
-	}
+	this->studentId = "";
+	this->firstName = "";
+	this->lastName = "";
+	this->emailAddress = "";
+	this->age = "";
+	for (int i = 0; i < daysInCourseArraySize; i++) this->daysInCourse[i] = 0;
 }
 
-Student::Student(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse[], Degree degree)
-	:studentId(studentId), firstName(firstName), lastName(lastName), emailAddress(emailAddress), age(age), daysInCourse(new int[daysInCourseArraySize])
+Student::Student(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse[])
 {
-	for (int i = 0; i < daysInCourseArraySize; ++i) {
-		this->daysInCourse[i] = daysInCourse[i];
-	}
+	this->studentId = "";
+	this->firstName = "";
+	this->lastName = "";
+	this->emailAddress = "";
+	this->age = "";
+	for (int i = 0; i < daysInCourseArraySize; ++i) this->daysInCourse[i] = daysInCourse[i];
 }
 
 //Accessors
-string Student::getStudentId() const {
+string Student::getStudentId() {
 	return studentId;
 }
 
-string Student::getFirstName() const {
+string Student::getFirstName() {
 	return firstName;
 }
 
-string Student::getLastName() const {
+string Student::getLastName() {
 	return lastName;
 }
 
-string Student::getEmailAddress() const {
+string Student::getEmailAddress() {
 	return emailAddress;
 }
 
-int Student::getAge() const {
+int Student::getAge() {
 	return age;
 }
 
-int* Student::getDaysInCourse() const {
+int* Student::getDaysInCourse() {
 	return daysInCourse;
-}
-
-Degree Student::getDegree() {
-	return degree;
 }
 
 //Mutators
@@ -70,39 +73,24 @@ void Student::setAge(int age) {
 }
 
 void Student::setDaysInCourse(int daysInCourse[]) {
-	this->daysInCourse = new int[daysInCourseArraySize];
-	for (int i = 0; i < daysInCourseArraySize; ++i) this->daysInCourse[i] = daysInCourse[i];
+	for (int i = 0; i < daysInCourseArraySize; ++i)
+		this->daysInCourse[i] = daysInCourse[i];
 }
 
-void Student::setDegree(Degree degree) {
-	this->degree = degree;
-}
-
-void Student::print() {
-	cout << getStudentId();
-	cout << "\tFirst Name: " << getFirstName();
-	cout << "\tLast Name: " << getLastName();
-	cout << "\tAge: " << getAge();
-
-	int* days = getDaysInCourse();
-	cout << "\t Days in course: " << days[0] << ", " << days[1] << ", " << days[2];
-
-	string degreeString = "";
-	switch (getDegree()) {
-	case NETWORK:
-		degreeString = "SECURITY";
-		break;
-	case NETWORK:
-		degreeString = "NETWORK";
-		break;
-	case NETWORK:
-		degreeString = "SOFTWARE";
-		break;
-	}
-	cout << "\tDegree: " << degreeString << endl;
+void Student::print() 
+{
+	cout << left << setw(4) << studentId
+	cout << left << setw(10) << firstName;
+	cout << left << setw(10) << lastName;
+	cout << left << setw(25) << emailAddress;
+	cout << left << setw(4) << age;
+	cout << left << setw(4) << daysInCourse[0];
+	cout << left << setw(4) << daysInCourse[1];
+	cout << left << setw(4) << daysInCourse[2];
 }
 
 //Destructor
-Student::~Student() {
+Student::~Student() 
+{
 
 }
