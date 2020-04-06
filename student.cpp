@@ -1,51 +1,49 @@
 #include <iostream>
 #include "student.h"
-using namespace std;
+using std::left;
+using std::cout;
+using std::setw;
 
 //Constructors
-Student::Student()
-	: studentId(""), firstName(""), lastName(""), emailAddress(""), age(-1), daysInCourse(new int[daysInCourseArraySize])
+Student::Student() 
 {
-	for (int i = 0; i < daysInCourseArraySize; ++1) {
-		this->daysInCourse[i] = 0;
-	}
+	this->studentId = "";
+	this->firstName = "";
+	this->lastName = "";
+	this->emailAddress = "";
+	this->age = "";
+	for (int i = 0; i < daysInCourseArraySize; i++) this->daysInCourse[i] = 0;
 }
 
-Student::Student(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse[], Degree degree)
+Student::Student(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse[])
 	:studentId(studentId), firstName(firstName), lastName(lastName), emailAddress(emailAddress), age(age), daysInCourse(new int[daysInCourseArraySize])
 {
-	for (int i = 0; i < daysInCourseArraySize; ++i) {
-		this->daysInCourse[i] = daysInCourse[i];
-	}
+	for (int i = 0; i < daysInCourseArraySize; ++i) this->daysInCourse[i] = daysInCourse[i];
 }
 
 //Accessors
-string Student::getStudentId() const {
+string Student::getStudentId() {
 	return studentId;
 }
 
-string Student::getFirstName() const {
+string Student::getFirstName() {
 	return firstName;
 }
 
-string Student::getLastName() const {
+string Student::getLastName() {
 	return lastName;
 }
 
-string Student::getEmailAddress() const {
+string Student::getEmailAddress() {
 	return emailAddress;
 }
 
-int Student::getAge() const {
+int Student::getAge() {
 	return age;
 }
 
-int* Student::getDaysInCourse() const {
+int* Student::getDaysInCourse() {
 	return daysInCourse;
-}
-
-Degree Student::getDegree() {
-	return degree;
 }
 
 //Mutators
@@ -70,12 +68,8 @@ void Student::setAge(int age) {
 }
 
 void Student::setDaysInCourse(int daysInCourse[]) {
-	this->daysInCourse = new int[daysInCourseArraySize];
-	for (int i = 0; i < daysInCourseArraySize; ++i) this->daysInCourse[i] = daysInCourse[i];
-}
-
-void Student::setDegree(Degree degree) {
-	this->degree = degree;
+	for (int i = 0; i < daysInCourseArraySize; ++i) 
+	this->daysInCourse[i] = daysInCourse[i];
 }
 
 void Student::print() {
