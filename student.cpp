@@ -12,7 +12,7 @@ Student::Student()
 	this->firstName = "";
 	this->lastName = "";
 	this->emailAddress = "";
-	this->age = "";
+	this->age = 0;
 	for (int i = 0; i < daysInCourseArraySize; i++) this->daysInCourse[i] = 0;
 }
 
@@ -22,7 +22,7 @@ Student::Student(string studentId, string firstName, string lastName, string ema
 	this->firstName = "";
 	this->lastName = "";
 	this->emailAddress = "";
-	this->age = "";
+	this->age = 0;
 	for (int i = 0; i < daysInCourseArraySize; ++i) this->daysInCourse[i] = daysInCourse[i];
 }
 
@@ -79,7 +79,7 @@ void Student::setDaysInCourse(int daysInCourse[]) {
 
 void Student::print() 
 {
-	cout << left << setw(4) << studentId
+	cout << left << setw(4) << studentId;
 	cout << left << setw(10) << firstName;
 	cout << left << setw(10) << lastName;
 	cout << left << setw(25) << emailAddress;

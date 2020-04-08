@@ -18,12 +18,12 @@ public:
 
 	Student* getStudentId(int index);
 	void parseThenAdd(string datarow);
-	void add(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse0, int daysInCourse1, int daysInCourse2, Degree);
+	void add(string studentId, string firstName, string lastName, string emailAddress, int age, int daysN1, int daysN2, int daysN3, Degree);
 	void remove(string studentId);
 	void printAll();
 	void printAverageDaysInCourse(string studentId);
 	void printInvalidEmails();
-	void printByDegreeProgram(int degreeprogram);
-
+	void printByDegreeProgram(Degree degreeprogram);
+	
 	~Roster();
 };

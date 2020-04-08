@@ -7,10 +7,14 @@ NetworkStudent::NetworkStudent():Student()
 	degree = NETWORK;
 }
 
-NetworkStudent::NetworkStudent(string StudentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse, Degree degree)
+NetworkStudent::NetworkStudent(string StudentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse[], Degree degree)
 	: Student(studentId, firstName, lastName, emailAddress, age, daysInCourse)
 {
 	degree = NETWORK;
+}
+
+NetworkStudent::NetworkStudent(string StudentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse, Degree degree)
+{
 }
 
 Degree NetworkStudent::getDegree()
@@ -20,7 +24,7 @@ Degree NetworkStudent::getDegree()
 
 void NetworkStudent::print()
 {
-	this->Student::print()
+	this->Student::print();
 	cout << "NETWORK" << "\n";
 }
 

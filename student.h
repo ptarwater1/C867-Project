@@ -20,8 +20,8 @@ protected:
 public:
 	//Constructors
 	Student();
-	Student(string studentId, string firstName, string lastName, string emailAddress, int age, int* daysInCourse[]);
-	
+	Student(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse[]);
+		
 	//Accessors
 	string getStudentId();
 	string getFirstName();
