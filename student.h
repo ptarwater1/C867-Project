@@ -21,7 +21,7 @@ public:
 	//Constructors
 	Student();
 	Student(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse[]);
-		
+
 	//Accessors
 	string getStudentId();
 	string getFirstName();
@@ -38,7 +38,7 @@ public:
 	void setEmailAdress(string emailAddress);
 	void setAge(int age);
 	void setDaysInCourse(int daysInCourse[]);
-	
+
 	virtual void print() = 0;
 
 	//Destructor

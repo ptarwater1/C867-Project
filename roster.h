@@ -10,8 +10,8 @@ class Roster {
 private:
 	int lastIndex;
 	int capacity;
-	Student ** classRosterArray;
-	
+	Student** classRosterArray;
+
 public:
 	Roster();
 	Roster(int capacity);
@@ -24,6 +24,6 @@ public:
 	void printAverageDaysInCourse(string studentId);
 	void printInvalidEmails();
 	void printByDegreeProgram(Degree degreeprogram);
-	
+
 	~Roster();
 };

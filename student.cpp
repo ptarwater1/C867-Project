@@ -18,11 +18,11 @@ Student::Student()
 
 Student::Student(string studentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse[])
 {
-	this->studentId = "";
-	this->firstName = "";
-	this->lastName = "";
-	this->emailAddress = "";
-	this->age = 0;
+	this->studentId = studentId;
+	this->firstName = firstName;
+	this->lastName = lastName;
+	this->emailAddress = emailAddress;
+	this->age = age;
 	for (int i = 0; i < daysInCourseArraySize; ++i) this->daysInCourse[i] = daysInCourse[i];
 }
 
@@ -77,20 +77,20 @@ void Student::setDaysInCourse(int daysInCourse[]) {
 		this->daysInCourse[i] = daysInCourse[i];
 }
 
-void Student::print() 
+void Student::print()
 {
-	cout << left << setw(4) << studentId;
-	cout << left << setw(10) << firstName;
-	cout << left << setw(10) << lastName;
-	cout << left << setw(25) << emailAddress;
-	cout << left << setw(4) << age;
-	cout << left << setw(4) << daysInCourse[0];
-	cout << left << setw(4) << daysInCourse[1];
-	cout << left << setw(4) << daysInCourse[2];
+	cout << left << setw(4) << getStudentId();
+	cout << left << setw(10) << getFirstName();
+	cout << left << setw(10) << getLastName();
+	cout << left << setw(25) << getEmailAddress();
+	cout << left << setw(4) << getAge();
+	cout << left << setw(4) << getDaysInCourse()[0];
+	cout << left << setw(4) << getDaysInCourse()[1];
+	cout << left << setw(4) << getDaysInCourse()[2];
 }
 
 //Destructor
-Student::~Student() 
+Student::~Student()
 {
 
 }

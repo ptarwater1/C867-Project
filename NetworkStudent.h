@@ -5,7 +5,6 @@
 class NetworkStudent : public Student
 {
 public:
-	NetworkStudent();
 	NetworkStudent(string StudentId, string firstName, string lastName, string emailAddress, int age, int daysInCourse[], Degree degree);
 	NetworkStudent(
 		string StudentId,
@@ -19,5 +18,4 @@ public:
 	Degree getDegree();
 	void print();
 
-	~NetworkStudent();
 };

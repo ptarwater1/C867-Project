@@ -13,10 +13,10 @@ Roster::Roster(int capacity)
 {
 	this->capacity = capacity;
 	this->lastIndex = -1;
-	this->classRosterArray = new Student*[capacity];
+	this->classRosterArray = new Student * [capacity];
 }
 
-Student * Roster::getStudentId(int index)
+Student* Roster::getStudentId(int index)
 {
 	return classRosterArray[index];
 }
@@ -26,9 +26,11 @@ void Roster::parseThenAdd(string row)
 	if (lastIndex < capacity) {
 		lastIndex++;
 		Degree degree;
-		if (row[2] == 'C') degree = SECURITY;
-		else if (row[2] == 'T') degree = NETWORK;
-		else if (row[2] == 'F') degree = SOFTWARE;
+		if (row[1] == '1') degree = SECURITY;
+		else if (row[1] == '2') degree = NETWORK;
+		else if (row[1] == '3') degree = SOFTWARE;
+		else if (row[1] == '4') degree = SECURITY;
+		else if (row[1] == '5') degree = SOFTWARE;
 		else
 		{
 			cerr << "INVALID DEGREE. EXITING.\n";
@@ -42,45 +44,45 @@ void Roster::parseThenAdd(string row)
 	rhs = row.find(",", lhs);
 	string fName = row.substr(lhs, rhs - lhs);
 
-lhs = rhs + 1;
-rhs = row.find(",", lhs);
-string lName = row.substr(lhs, rhs - lhs);
+	lhs = rhs + 1;
+	rhs = row.find(",", lhs);
+	string lName = row.substr(lhs, rhs - lhs);
 
-lhs = rhs + 1;
-rhs = row.find(",", lhs);
-string eAddr = row.substr(lhs, rhs - lhs);
+	lhs = rhs + 1;
+	rhs = row.find(",", lhs);
+	string eAddr = row.substr(lhs, rhs - lhs);
 
-lhs = rhs + 1;
-rhs = row.find(",", lhs);
-int sAge = stoi(row.substr(lhs, rhs - lhs));
+	lhs = rhs + 1;
+	rhs = row.find(",", lhs);
+	int sAge = stoi(row.substr(lhs, rhs - lhs));
 
-lhs = rhs + 1;
-rhs = row.find(",", lhs);
-int daysN1 = stoi(row.substr(lhs, rhs - lhs));
+	lhs = rhs + 1;
+	rhs = row.find(",", lhs);
+	int daysN1 = stoi(row.substr(lhs, rhs - lhs));
 
-lhs = rhs + 1;
-rhs = row.find(",", lhs);
-int daysN2 = stoi(row.substr(lhs, rhs - lhs));
+	lhs = rhs + 1;
+	rhs = row.find(",", lhs);
+	int daysN2 = stoi(row.substr(lhs, rhs - lhs));
 
-lhs = rhs + 1;
-rhs = row.find(",", lhs);
-int daysN3 = stoi(row.substr(lhs, rhs - lhs));
+	lhs = rhs + 1;
+	rhs = row.find(",", lhs);
+	int daysN3 = stoi(row.substr(lhs, rhs - lhs));
 
-lhs = rhs + 1;
-rhs = row.find(",", lhs);
-string degree = row.substr(lhs, rhs - lhs);
-Degree degreesp;
-if (degree == "SECURITY") {
-	degreesp = SECURITY;
-}
-else if (degree == "NETWORK") {
-	degreesp = NETWORK;
-}
-else {
-	degreesp = SOFTWARE;
-}
+	lhs = rhs + 1;
+	rhs = row.find(",", lhs);
+	string degree = row.substr(lhs, rhs - lhs);
+	Degree degreesp;
+	if (degree == "SECURITY") {
+		degreesp = SECURITY;
+	}
+	else if (degree == "NETWORK") {
+		degreesp = NETWORK;
+	}
+	else {
+		degreesp = SOFTWARE;
+	}
 
-add(sId, fName, lName, eAddr, sAge, daysN1, daysN2, daysN3, degreesp);
+	add(sId, fName, lName, eAddr, sAge, daysN1, daysN2, daysN3, degreesp);
 
 }
 
@@ -135,7 +137,7 @@ void Roster::printInvalidEmails()
 	for (int i = 0; i <= lastIndex; i++) {
 		string emailAddress = classRosterArray[i]->getEmailAddress();
 		if ((emailAddress.find("@") == string::npos) || (emailAddress.find(".") == string::npos || emailAddress.find(" ") != string::npos)) {
-			cout << "Email Address for: " << classRosterArray[i]->getFirstName() << " " << classRosterArray[i]->getLastName() << "is not valid. " << emailAddress << endl;
+			cout << "Email Address for: " << classRosterArray[i]->getFirstName() << " " << classRosterArray[i]->getLastName() << " is not valid. " << emailAddress << endl;
 		}
 	}
 }
@@ -143,9 +145,9 @@ void Roster::printInvalidEmails()
 void Roster::printByDegreeProgram(Degree degreeprogram)
 {
 	for (int i = 0; i <= lastIndex; i++) {
-	if (this->classRosterArray[i]->getDegree() == degreeprogram) {
-		classRosterArray[i]->print();
-	}
+		if (this->classRosterArray[i]->getDegree() == degreeprogram) {
+			classRosterArray[i]->print();
+		}
 	}  cout << endl;
 }
 
@@ -158,6 +160,12 @@ Roster::~Roster() {
 
 
 int main() {
+
+	cout << "C867: Scripting and Programming Applications." << endl;
+	cout << "Built with C++." << endl;
+	cout << "Patrick Tarwater - ID: #000919107." << endl;
+	cout << endl;
+
 	const string studentData[] =
 	{
 		"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -179,11 +187,17 @@ int main() {
 	cout << "All Students:" << endl;
 
 	classRoster->printAll();
+	cout << endl;
+
 
 	classRoster->printInvalidEmails();
+	cout << endl;
 
+	cout << "Printing average days for student A1." << endl;
 	classRoster->printAverageDaysInCourse("A1");
+	cout << endl;
 
+	cout << "Printing all software students." << endl;
 	classRoster->printByDegreeProgram(SOFTWARE);
 
 	classRoster->remove("A3");
